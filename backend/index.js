@@ -7,9 +7,10 @@ const T =require("./Routes/TaskRoutes");
 const { default: mongoose } = require("mongoose");
   
 require("dotenv").config();
-const app=express();
+const cors = require("cors");
+
 const allowedOrigins = [
-    "http://localhost:5173",  // Local frontend
+    "http://localhost:5173",  // Local development frontend
     "https://new-task-management-system-frontend.vercel.app"  // Deployed frontend
 ];
 
@@ -18,13 +19,14 @@ app.use(cors({
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            callback(new Error("Not allowed by CORS"));
+            callback(new Error("CORS policy: Not allowed"));
         }
     },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
+
 
 app.use(express.json());
 app.use("/api/TaskRoutes",T);
