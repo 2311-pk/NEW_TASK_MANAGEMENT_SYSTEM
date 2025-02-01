@@ -13,9 +13,8 @@ const app = express();
 // CORS configuration
 const allowedOrigins = [
   "http://localhost:5173",  // Local development frontend
-  "https://new-task-management-system-frontend.vercel.app"  // Deployed frontend
+  "https://new-task-management-system-frontend.vercel.app/"  // Deployed frontend
 ];
-
 app.use(
   cors({
     origin: function (origin, callback) {
