@@ -13,19 +13,7 @@ const allowedOrigins = [
     "http://localhost:5173",  // Local development frontend
     "https://new-task-management-system-frontend.vercel.app"  // Deployed frontend
 ];
-
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("CORS policy: Not allowed"));
-        }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
-}));
+app.use(cors());
 
 
 app.use(express.json());
