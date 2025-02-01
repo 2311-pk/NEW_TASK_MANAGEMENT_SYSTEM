@@ -10,7 +10,7 @@ require("dotenv").config();
 const app=express();
 const allowedOrigins = [
     "http://localhost:5173",  // Local frontend
-    "https://new-task-management-system-1yqy-nx74dvgee.vercel.app"  // Deployed frontend
+    "https://new-task-management-system-frontend.vercel.app"  // Deployed frontend
 ];
 
 app.use(cors({
